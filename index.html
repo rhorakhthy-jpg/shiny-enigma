@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halaman Utama Pixel</title>
+<style>
+  body {
+    background-image: url('back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: 'Press Start 2P', monospace;
+    color: white;
+    text-align: center;
+  }
+
+  .circle {
+    width: 120px;
+    height: 120px;
+    border: 5px solid #8FDE5DFF;
+    border-radius: 50%;
+    margin: 80px auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .circle-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, auto); /* 2 kolom fleksibel */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pixel-btn {
+    max-width: 100%;   /* gambar tidak melebihi kolom */
+    height: auto;      /* tinggi menyesuaikan proporsi */
+    image-rendering: pixelated;
+    cursor: pointer;
+    border: none
+  }
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #3fae3f;
+    border: 8px solid #baff6b;
+    padding: 20px;
+    width: 300px;
+    color: white;
+  }
+
+  .popup p {
+    margin: 8px 0;
+  }
+
+  .close-btn {
+    margin-top: 10px;
+    background-color: #baff6b;
+    border: none;
+    color: #4b2b4b;
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+  <div class="circle">
+    <img src="ilaa1.png" alt="Foto Profil" class="circle-img">
+  </div>
+
+  <div class="buttons">
+    <img id="btnA" class="pixel-btn" src="musik.png" alt="Tombol A">
+    <img id="btnB" class="pixel-btn" src="musik.png" alt="Tombol B">
+    <img id="btnC" class="pixel-btn" src="musik.png" alt="Tombol C">
+    <img id="btnD" class="pixel-btn" src="musik.png" alt="Tombol D">
+  </div>
+
+  <!-- Pop-up A -->
+  <div id="popupA" class="popup">
+    <h3>Poem</h3>
+    <p>Halo</p><p>kamu</p><p>apa</p><p>kabar</p><p>baikk</p><p>kann</p><p>??</p><p></p>
+    <button class="close-btn" onclick="closePopup('popupA')">Tutup</button>
+  </div>
+
+  <!-- Pop-up C -->
+  <div id="popupC" class="popup">
+    <h3>Pop-up C (kosong)</h3>
+    <p>Belum ada gambar di sini.</p>
+    <button class="close-btn" onclick="closePopup('popupC')">Tutup</button>
+  </div>
+
+  <audio id="music" src="musik.mp3"></audio>
+
+<script>
+  document.getElementById('btnA').onclick = function() {
+    document.getElementById('popupA').style.display = 'block';
+  };
+
+  document.getElementById('btnB').onclick = function() {
+    document.getElementById('music').play();
+  };
+
+  document.getElementById('btnC').onclick = function() {
+    document.getElementById('popupC').style.display = 'block';
+  };
+
+  document.getElementById('btnD').onclick = function() {
+    window.open('https://youtu.be/QDia3e12czc?si=PHBVv75quKvDZ3hd', '_blank');
+  };
+
+  function closePopup(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
